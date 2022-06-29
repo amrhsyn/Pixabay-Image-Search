@@ -1,12 +1,12 @@
 package me.ahch.core.model
 
 data class Hit (
-    val id: Int? = null,
-    val user: String? = null,
-    val largeImageURL: String? = null,
-    val previewURL: String? = null,
-    val tags: String? = null,
-    val likes: Int? = null,
-    val downloads: Int? = null,
-    val comments: Int? = null,
+    val id: Int,
+    val user: String,
+    val largeImageURL: String,
+    val webFormatURL: String,
+    val tags: String,
+    val likes: Int,
+    val downloads: Int,
+    val comments: Int,
 )

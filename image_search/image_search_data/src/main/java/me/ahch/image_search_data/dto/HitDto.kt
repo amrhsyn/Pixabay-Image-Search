@@ -1,52 +1,71 @@
 package me.ahch.image_search_data.dto
 
 import androidx.annotation.Keep
+import androidx.room.Entity
+import androidx.room.Ignore
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import me.ahch.image_search_data.util.Constants
 
 @Keep
+@Entity(tableName = Constants.IMAGE_TABLE)
 data class HitDto(
-    @SerializedName("collections")
-    val collections: Int? = null,
-    @SerializedName("comments")
-    val comments: Int? = null,
-    @SerializedName("downloads")
-    val downloads: Int? = null,
     @SerializedName("id")
-    val id: Int? = null,
+    @PrimaryKey()
+    val id: Int,
+    @SerializedName("collections")
+    @Ignore
+    val collections: Int,
+    @SerializedName("comments")
+    val comments: Int,
+    @SerializedName("downloads")
+    val downloads: Int,
     @SerializedName("imageHeight")
-    val imageHeight: Int? = null,
+    @Ignore
+    val imageHeight: Int,
     @SerializedName("imageSize")
-    val imageSize: Int? = null,
+    @Ignore
+    val imageSize: Int,
     @SerializedName("imageWidth")
-    val imageWidth: Int? = null,
+    @Ignore
+    val imageWidth: Int,
     @SerializedName("largeImageURL")
-    val largeImageURL: String? = null,
+    val largeImageURL: String,
     @SerializedName("likes")
-    val likes: Int? = null,
+    val likes: Int,
     @SerializedName("pageURL")
-    val pageURL: String? = null,
+    @Ignore
+    val pageURL: String,
     @SerializedName("previewHeight")
-    val previewHeight: Int? = null,
+    @Ignore
+    val previewHeight: Int,
     @SerializedName("previewURL")
-    val previewURL: String? = null,
+    @Ignore
+    val previewURL: String,
     @SerializedName("previewWidth")
-    val previewWidth: Int? = null,
+    @Ignore
+    val previewWidth: Int,
     @SerializedName("tags")
-    val tags: String? = null,
+    val tags: String,
     @SerializedName("type")
-    val type: String? = null,
+    val type: String,
     @SerializedName("user")
-    val user: String? = null,
+    val user: String,
     @SerializedName("user_id")
-    val userId: Int? = null,
+    @Ignore
+    val userId: Int,
     @SerializedName("userImageURL")
-    val userImageURL: String? = null,
+    @Ignore
+    val userImageURL: String,
     @SerializedName("views")
-    val views: Int? = null,
+    @Ignore
+    val views: Int,
     @SerializedName("webformatHeight")
-    val webformatHeight: Int? = null,
+    @Ignore
+    val webormatHeight: Int,
     @SerializedName("webformatURL")
-    val webformatURL: String? = null,
+    val webFormatURL: String,
     @SerializedName("webformatWidth")
-    val webformatWidth: Int? = null
+    @Ignore
+    val webformatWidth: Int
 )

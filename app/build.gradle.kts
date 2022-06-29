@@ -101,6 +101,7 @@ dependencies {
     annotationProcessor(Room.roomCompiler)
     implementation(Room.roomKtx)
     implementation(Room.roomPaging)
+    implementation(Paging.paging)
 
     testImplementation(Testing.junit4)
     testImplementation(Testing.junitAndroidExt)

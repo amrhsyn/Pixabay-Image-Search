@@ -7,9 +7,9 @@ import androidx.annotation.Keep
 @Keep
 data class ImageSearchResponse(
     @SerializedName("hits")
-    val hits: List<HitDto?>? = null,
+    val hits: List<HitDto>,
     @SerializedName("total")
-    val total: Int? = null,
+    val total: Int,
     @SerializedName("totalHits")
-    val totalHits: Int? = null
+    val totalHits: Int
 )
