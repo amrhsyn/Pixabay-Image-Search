@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="1.8">
+      <module name="Pixabay_Search.app" target="11" />
+      <module name="Pixabay_Search.buildSrc" target="11" />
+      <module name="Pixabay_Search.buildSrc.main" target="11" />
+      <module name="Pixabay_Search.buildSrc.test" target="11" />
+      <module name="Pixabay_Search.image_detail.image_detail_presentation" target="11" />
+      <module name="Pixabay_Search.image_search.image_search_data" target="11" />
+      <module name="Pixabay_Search.image_search.image_search_domain" target="11" />
+      <module name="Pixabay_Search.image_search.image_search_domain.main" target="1.8" />
+      <module name="Pixabay_Search.image_search.image_search_domain.test" target="1.8" />
+      <module name="Pixabay_Search.image_search.image_search_presentation" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
