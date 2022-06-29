@@ -55,6 +55,14 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
+    externalNativeBuild {
+        ndkBuild {
+            path = file("src/main/jni/Android.mk")
+        }
+    }
+    ndkVersion = "24.0.8215888"
+
 }
 
 dependencies {
