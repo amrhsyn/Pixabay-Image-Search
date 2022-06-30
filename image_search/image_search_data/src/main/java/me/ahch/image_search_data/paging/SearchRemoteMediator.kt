@@ -29,12 +29,10 @@ class SearchRemoteMediator(
         return try {
             val currentPage = when (loadType) {
                 LoadType.REFRESH -> {
-                    println("ahchq LoadType.REFRESH")
                     val remoteKeys = getRemoteKeyClosestToCurrentPosition(state)
                     remoteKeys?.nextPage?.minus(1) ?: 1
                 }
                 LoadType.PREPEND -> {
-                    println("ahchq LoadType.PREPEND")
                     val remoteKeys = getRemoteKeyForFirstItem(state)
                     val prevPage = remoteKeys?.prevPage
                         ?: return MediatorResult.Success(
@@ -43,7 +41,6 @@ class SearchRemoteMediator(
                     prevPage
                 }
                 LoadType.APPEND -> {
-                    println("ahchq LoadType.APPEND")
                     val remoteKeys = getRemoteKeyForLastItem(state)
                     val nextPage = remoteKeys?.nextPage
                         ?: return MediatorResult.Success(
@@ -61,20 +58,15 @@ class SearchRemoteMediator(
             )
 
             if (response.isSuccessful) {
-                println("ahchq response.isSuccessful")
 
                 val hits = response.body()!!.hits
                 val endOfPaginationReached = response.body()!!.hits.isEmpty()
-
-                println("ahchq endOfPaginationReached: $endOfPaginationReached")
-                println("ahchq currentPage: $currentPage")
 
                 val prevPage = if (currentPage == 1) null else currentPage - 1
                 val nextPage = if (endOfPaginationReached) null else currentPage + 1
 
                 pixabayDatabase.withTransaction {
                     if (loadType == LoadType.REFRESH) {
-                        println("ahchq if LoadType.REFRESH")
                         pixabayImageDao.deleteAllImages()
                         pixabayRemoteKeysDao.deleteAllRemoteKeys()
                     }

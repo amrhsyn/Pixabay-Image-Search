@@ -46,14 +46,7 @@ fun PixabaySearchApp() {
                         viewModel = hiltViewModel(),
                         navigateToDetailsScreen = {}
                     )
-                    /* FleetListScreen(
-                         scaffoldState = scaffoldState,
-                         viewModel = hiltViewModel(),
-                         navigateToFleetMapScreen = { fleetList ->
-                             val jsonFleetList = Uri.encode(Gson().toJson(fleetList))
-                             navController.navigate(Route.DETAILS_SCREEN + "/${jsonFleetList}")
-                         }
-                     )*/
+
                 }
                 composable(
                     route = Route.DETAILS_SCREEN + "/{$HITS_ARGUMENT}",
@@ -63,12 +56,6 @@ fun PixabaySearchApp() {
                         }
                     )
                 ) {
-                    /*val listType = object : TypeToken<List<Fleet>>() {}.type
-                    val fleetList = Gson().fromJson<List<Fleet>>(
-                        it.arguments?.getString(FLEET_LIST_ARGUMENT)!!,
-                        listType
-                    )*/
-                    /*  FleetMapScreen(fleetList, viewModel = hiltViewModel())*/
                 }
             }
         }

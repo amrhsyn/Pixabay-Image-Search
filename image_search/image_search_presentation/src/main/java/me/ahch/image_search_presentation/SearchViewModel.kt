@@ -40,6 +40,14 @@ class SearchViewModel @Inject constructor(
             is SearchEvent.OnCloseClick -> {
                 _state.value = state.value.copy(searchedValue = "")
             }
+            is SearchEvent.OnAlertDialogDismiss -> {
+                _state.value = state.value.copy(isDialogOpen = false)
+            }
+            is SearchEvent.OnSearchItemClick -> {
+                _state.value = state.value.copy(selectedHit = event.hit)
+                _state.value = state.value.copy(isDialogOpen = true)
+
+            }
 
         }
     }

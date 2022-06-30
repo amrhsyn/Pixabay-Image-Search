@@ -4,5 +4,7 @@ import androidx.paging.PagingData
 import me.ahch.core.model.Hit
 
 data class SearchState(
-    val searchedValue:String="",
+    val searchedValue: String = "",
+    val selectedHit: Hit = Hit(),
+    val isDialogOpen: Boolean=false,
 )

@@ -12,11 +12,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
+import me.ahch.core_ui.util.DefaultTopBarHeight
+import me.ahch.image_search_presentation.R
 
 @Composable
 fun SearchView(
@@ -28,7 +31,7 @@ fun SearchView(
     Surface(
         modifier = Modifier
             .fillMaxWidth()
-            .height(56.dp),
+            .height(DefaultTopBarHeight),
         elevation = AppBarDefaults.TopAppBarElevation,
     ) {
         TextField(
@@ -41,8 +44,8 @@ fun SearchView(
                 Text(
                     modifier = Modifier
                         .alpha(alpha = ContentAlpha.medium),
-                    text = "Search here...",
-                    color = Color.White
+                    text = stringResource(R.string.search_screen_search_view_search_here),
+                    color = MaterialTheme.colors.primary
                 )
             },
             textStyle = TextStyle(
@@ -57,17 +60,14 @@ fun SearchView(
                 ) {
                     Icon(
                         imageVector = Icons.Default.Search,
-                        contentDescription = "Search Icon",
+                        contentDescription = stringResource(R.string.search_screen_search_view_search_icon),
                         tint = MaterialTheme.colors.primary
                     )
                 }
             },
             trailingIcon = {
                 IconButton(
-                    modifier = Modifier
-                        .semantics {
-                            contentDescription = "CloseButton"
-                        },
+                    modifier = Modifier,
                     onClick = {
                         if (text.isNotEmpty()) {
                             onTextChange("")
@@ -78,7 +78,7 @@ fun SearchView(
                 ) {
                     Icon(
                         imageVector = Icons.Default.Close,
-                        contentDescription = "Close Icon",
+                        contentDescription = stringResource(R.string.search_screen_search_view_close_icon),
                         tint = MaterialTheme.colors.primary
                     )
                 }
