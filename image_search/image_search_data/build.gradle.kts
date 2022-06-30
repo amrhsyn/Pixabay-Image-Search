@@ -12,11 +12,10 @@ dependencies {
     "implementation"(Retrofit.okHttpLoggingInterceptor)
     "implementation"(Retrofit.gsonConvertor)
 
+    "kapt"(Room.roomCompiler)
     "implementation"(Room.roomRuntime)
-    "annotationProcessor"(Room.roomCompiler)
     "implementation"(Room.roomKtx)
     "implementation"(Room.roomPaging)
-    "implementation"(Paging.paging)
 
 
 }

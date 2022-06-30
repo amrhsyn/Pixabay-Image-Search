@@ -1,7 +1,7 @@
 package me.ahch.core.model
 
 data class Hit (
-    val id: Int,
+    val id: String,
     val user: String,
     val largeImageURL: String,
     val webFormatURL: String,

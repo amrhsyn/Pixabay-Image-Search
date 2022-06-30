@@ -2,6 +2,7 @@ object Modules {
     const val app = ":app"
 
     const val core = ":core"
+    const val coreUi = ":core_ui"
 
     const val imageSearchData = ":image_search:image_search_data"
     const val imageSearchDomain = ":image_search:image_search_domain"

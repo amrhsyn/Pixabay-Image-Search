@@ -54,6 +54,10 @@ dependencies {
     implementation Compose.navigation
     implementation Compose.viewModelCompose
     implementation Compose.activityCompose
+    implementation Paging.paging
+    implementation Coil.coil
+    implementation Coil.skydovesCoil
+
     testImplementation Testing.junit4
     testImplementation Testing.junitAndroidExt 
     testImplementation Testing.truth 

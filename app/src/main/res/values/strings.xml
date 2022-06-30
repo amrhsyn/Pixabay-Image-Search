@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Pixabay Search</string>
+    <string name="search_screen_title">SEARCH Search</string>
+    <string name="details_screen_title">DETAILS Search</string>
+    <string name="top_bar_back_content_description">Back</string>
+    <string name="navigation_back_button_testing_tag">back_btn</string>
 </resources>

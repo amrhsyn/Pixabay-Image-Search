@@ -15,14 +15,9 @@ import me.ahch.image_search_data.util.Constants
 class SearchRemoteMediator(
     private val searchApi: SearchApi,
     private val pixabayDatabase: PixabayDatabase,
-    private val query: String
+    private val query: String,
+    private val apiKey:String
 ) : RemoteMediator<Int, HitDto>() {
-
-    init {
-        System.loadLibrary("api-keys")
-    }
-
-    external fun getPixabayApi(): String
 
     private val pixabayImageDao = pixabayDatabase.imagesDao()
     private val pixabayRemoteKeysDao = pixabayDatabase.imagesRemoteKeysDao()
@@ -62,12 +57,17 @@ class SearchRemoteMediator(
                 query = query,
                 page = currentPage,
                 perPage = Constants.ITEMS_PER_PAGE,
-                key = getPixabayApi()
+                key = apiKey
             )
 
             if (response.isSuccessful) {
+                println("ahchq response.isSuccessful")
+
                 val hits = response.body()!!.hits
-                val endOfPaginationReached = response.body()?.hits?.isEmpty() ?: false
+                val endOfPaginationReached = response.body()!!.hits.isEmpty()
+
+                println("ahchq endOfPaginationReached: $endOfPaginationReached")
+                println("ahchq currentPage: $currentPage")
 
                 val prevPage = if (currentPage == 1) null else currentPage - 1
                 val nextPage = if (endOfPaginationReached) null else currentPage + 1
@@ -80,7 +80,7 @@ class SearchRemoteMediator(
                     }
                     val keys = hits.map { pixabayImage ->
                         ImagesRemoteKeys(
-                            id = pixabayImage.id.toString(),
+                            id = pixabayImage.id,
                             prevPage = prevPage,
                             nextPage = nextPage
                         )

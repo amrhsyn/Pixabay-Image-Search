@@ -6,6 +6,7 @@
       <module name="Pixabay_Search.buildSrc" target="11" />
       <module name="Pixabay_Search.buildSrc.main" target="11" />
       <module name="Pixabay_Search.buildSrc.test" target="11" />
+      <module name="Pixabay_Search.core_ui" target="11" />
       <module name="Pixabay_Search.image_detail.image_detail_presentation" target="11" />
       <module name="Pixabay_Search.image_search.image_search_data" target="11" />
       <module name="Pixabay_Search.image_search.image_search_domain" target="11" />

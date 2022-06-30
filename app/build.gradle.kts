@@ -17,7 +17,7 @@ android {
         versionCode = ProjectConfig.versionCode
         versionName = ProjectConfig.versionName
 
-        testInstrumentationRunner = "me.ahch.free_now_assignment.HiltTestRunner"
+        testInstrumentationRunner = "me.ahch.pixabaysearch.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -77,6 +77,9 @@ dependencies {
     implementation(Compose.viewModelCompose)
     implementation(Compose.activityCompose)
 
+    implementation(Coil.coil)
+    implementation(Coil.skydovesCoil)
+
     implementation(DaggerHilt.hiltAndroid)
     kapt(DaggerHilt.hiltCompiler)
 
@@ -97,8 +100,8 @@ dependencies {
     implementation(Retrofit.okHttpLoggingInterceptor)
     implementation(Retrofit.gsonConvertor)
 
+    kapt(Room.roomCompiler)
     implementation(Room.roomRuntime)
-    annotationProcessor(Room.roomCompiler)
     implementation(Room.roomKtx)
     implementation(Room.roomPaging)
     implementation(Paging.paging)

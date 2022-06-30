@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface SearchApi {
 
-    @GET("/")
+    @GET("/api/")
     suspend fun searchImage(
         @Query("key") key: String,
         @Query("q") query: String,
