@@ -1,6 +1,7 @@
 package me.ahch.pixabaysearch
 
 import android.annotation.SuppressLint
+import android.net.Uri
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -14,7 +15,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.InternalCoroutinesApi
+import me.ahch.core.model.Hit
+import me.ahch.image_detail_presentation.ImageDetailScreen
 import me.ahch.image_search_presentation.SearchScreen
 import me.ahch.pixabaysearch.navigation.Argument.HITS_ARGUMENT
 import me.ahch.pixabaysearch.navigation.Route
@@ -44,7 +49,10 @@ fun PixabaySearchApp() {
                     SearchScreen(
                         scaffoldState = scaffoldState,
                         viewModel = hiltViewModel(),
-                        navigateToDetailsScreen = {}
+                        navigateToDetailsScreen = {
+                            val jsonHit = Uri.encode(Gson().toJson(it))
+                            navController.navigate(Route.DETAILS_SCREEN + "/${jsonHit}")
+                        }
                     )
 
                 }
@@ -56,6 +64,17 @@ fun PixabaySearchApp() {
                         }
                     )
                 ) {
+                    val hitType = object : TypeToken<Hit>() {}.type
+                    val selectedHit = Gson().fromJson<Hit>(
+                        it.arguments?.getString(HITS_ARGUMENT)!!,
+                        hitType
+                    )
+                    ImageDetailScreen(
+                        scaffoldState,
+                        selectedHit
+                    ) {
+                        navController.navigateUp()
+                    }
                 }
             }
         }

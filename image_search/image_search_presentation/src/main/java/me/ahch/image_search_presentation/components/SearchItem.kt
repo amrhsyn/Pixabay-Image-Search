@@ -3,20 +3,17 @@ package me.ahch.image_search_presentation.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextOverflow
 import coil.compose.AsyncImage
 import me.ahch.core.model.Hit
 import me.ahch.core.utils.tagsToArray
+import me.ahch.core_ui.components.PhotographerName
+import me.ahch.core_ui.components.TagList
 import me.ahch.core_ui.util.*
 import me.ahch.image_search_presentation.R
 
@@ -42,9 +39,13 @@ fun PortraitSearchItem(hit: Hit, onItemClick: () -> Unit) {
                 .background(Color.Gray)
                 .fillMaxWidth()
                 .align(Alignment.Start)
+                .padding(start = DefaultStandardPadding)
         ) {
-            Author(hit.user)
-            TagsList(hit.tags.tagsToArray())
+            Spacer(modifier = Modifier.height(DefaultStandardPadding))
+            PhotographerName(hit.user)
+            Spacer(modifier = Modifier.height(DefaultStandardPadding))
+            TagList(hit.tags.tagsToArray())
+            Spacer(modifier = Modifier.height(DefaultStandardPadding))
         }
     }
 }
@@ -74,45 +75,13 @@ fun LandscapeSearchItem(hit: Hit, onItemClick: () -> Unit) {
                 .weight(2F)
                 .height(SearchListItemImageHeightLandscape)
                 .align(Alignment.CenterVertically)
+                .padding(start = DefaultStandardPadding)
         ) {
-            Author(hit.user)
-            TagsList(hit.tags.tagsToArray())
+            Spacer(modifier = Modifier.height(DefaultStandardPadding))
+            PhotographerName(hit.user)
+            Spacer(modifier = Modifier.height(DefaultStandardPadding))
+            TagList(hit.tags.tagsToArray())
+            Spacer(modifier = Modifier.height(DefaultStandardPadding))
         }
     }
-}
-
-@Composable
-fun TagsList(tagList: List<String>) {
-    LazyRow {
-        items(items = tagList) { tag ->
-            Surface(
-                modifier = Modifier.padding(
-                    start = DefaultStandardPadding,
-                    end = DefaultSmallPadding,
-                    bottom = DefaultStandardPadding
-                ),
-                elevation = ChipsElevation,
-                shape = RoundedCornerShape(ChipsRoundedCorner),
-            ) {
-                Text(
-                    tag,
-                    style = MaterialTheme.typography.caption,
-                    color = Color.Black,
-                    modifier = Modifier.padding(DefaultStandardPadding)
-                )
-            }
-        }
-    }
-}
-
-@Composable
-fun Author(author: String) {
-    Text(
-        modifier = Modifier.padding(DefaultStandardPadding),
-        text = stringResource(R.string.search_screen_search_item_photoby) + author,
-        color = Color.White,
-        maxLines = 1,
-        overflow = TextOverflow.Ellipsis,
-        style = MaterialTheme.typography.h6,
-    )
 }

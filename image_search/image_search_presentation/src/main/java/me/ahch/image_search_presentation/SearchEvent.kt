@@ -8,4 +8,6 @@ sealed class SearchEvent {
     data class OnSearchItemClick(val hit: Hit) : SearchEvent()
     object OnCloseClick : SearchEvent()
     object OnAlertDialogDismiss : SearchEvent()
+    object OnAlertDialogApply : SearchEvent()
+
 }

@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.2005" />
+        <entry key="image_detail/image_detail_presentation/src/main/res/drawable/ic_comment.xml" value="0.2395" />
       </map>
     </option>
   </component>

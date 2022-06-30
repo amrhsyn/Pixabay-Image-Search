@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="image_detail_screen_search_item_an_image_by">an image by</string>
+    <string name="image_detail_screen_search_item_with">with</string>
+    <string name="image_detail_screen_search_item_tags">tags</string>
+</resources>
