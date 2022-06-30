@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import me.ahch.core.model.Hit
+import me.ahch.core.utils.Resource
 import me.ahch.image_search_data.local.PixabayDatabase
 import me.ahch.image_search_data.mapper.toHit
 import me.ahch.image_search_data.paging.SearchRemoteMediator
@@ -28,17 +29,20 @@ class SearchRepositoryImpl(
 
     external fun getPixabayApi(): String
 
-    override suspend fun searchImage(query: String): Flow<PagingData<Hit>> {
-            val pagingSourceFactory = { pixabayDatabase.imagesDao().getAllImages() }
-            return Pager(
-                config = PagingConfig(pageSize = ITEMS_PER_PAGE),
-                remoteMediator = SearchRemoteMediator(
-                    searchApi = api,
-                    pixabayDatabase = pixabayDatabase,
-                    query = query.toPixabayQuery(),
-                    apiKey = getPixabayApi()
-                ),
-                pagingSourceFactory = pagingSourceFactory
-            ).flow.map { it.map { it.toHit() } }
+    override suspend fun searchImage(query: String): Flow<Resource<PagingData<Hit>>> {
+        val pagingSourceFactory = { pixabayDatabase.imagesDao().getAllImages() }
+
+        val searchRemoteMediator = SearchRemoteMediator(
+            searchApi = api,
+            pixabayDatabase = pixabayDatabase,
+            query = query.toPixabayQuery(),
+            apiKey = getPixabayApi()
+        )
+
+        return Pager(
+            config = PagingConfig(pageSize = ITEMS_PER_PAGE),
+            remoteMediator = searchRemoteMediator,
+            pagingSourceFactory = pagingSourceFactory
+        ).flow.map { Resource.Success(it.map { it.toHit() }) }
     }
 }

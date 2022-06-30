@@ -1,9 +1,6 @@
 package me.ahch.image_search_data.paging
 
-import androidx.paging.ExperimentalPagingApi
-import androidx.paging.LoadType
-import androidx.paging.PagingState
-import androidx.paging.RemoteMediator
+import androidx.paging.*
 import androidx.room.withTransaction
 import me.ahch.image_search_data.dto.HitDto
 import me.ahch.image_search_data.dto.ImagesRemoteKeys
@@ -16,7 +13,7 @@ class SearchRemoteMediator(
     private val searchApi: SearchApi,
     private val pixabayDatabase: PixabayDatabase,
     private val query: String,
-    private val apiKey:String
+    private val apiKey:String,
 ) : RemoteMediator<Int, HitDto>() {
 
     private val pixabayImageDao = pixabayDatabase.imagesDao()

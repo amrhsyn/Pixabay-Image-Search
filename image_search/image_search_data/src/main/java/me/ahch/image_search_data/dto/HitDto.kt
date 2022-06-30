@@ -20,29 +20,22 @@ data class HitDto (
     @SerializedName("downloads")
     val downloads: Int,
     @SerializedName("imageHeight")
-    
     val imageHeight: Int,
     @SerializedName("imageSize")
-    
     val imageSize: Int,
     @SerializedName("imageWidth")
-    
     val imageWidth: Int,
     @SerializedName("largeImageURL")
     val largeImageURL: String,
     @SerializedName("likes")
     val likes: Int,
     @SerializedName("pageURL")
-    
     val pageURL: String,
     @SerializedName("previewHeight")
-    
     val previewHeight: Int,
     @SerializedName("previewURL")
-    
     val previewURL: String,
     @SerializedName("previewWidth")
-    
     val previewWidth: Int,
     @SerializedName("tags")
     val tags: String,
@@ -51,20 +44,15 @@ data class HitDto (
     @SerializedName("user")
     val user: String,
     @SerializedName("user_id")
-    
     val userId: Int,
     @SerializedName("userImageURL")
-    
     val userImageURL: String,
     @SerializedName("views")
-    
     val views: Int,
     @SerializedName("webformatHeight")
-    
     val webormatHeight: Int,
     @SerializedName("webformatURL")
     val webFormatURL: String,
     @SerializedName("webformatWidth")
-    
     val webformatWidth: Int
 )

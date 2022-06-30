@@ -9,5 +9,5 @@ interface SearchRepository {
 
     suspend fun searchImage(
         query: String
-    ): Flow<PagingData<Hit>>
+    ): Flow<Resource<PagingData<Hit>>>
 }
