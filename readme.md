@@ -2,6 +2,8 @@
 #  Description
 
 A sample pixabay image search project contains a search screen with result list and a detail screen with selected image detail.
+<br />
+you can download a debug version here : [debug version ](https://github.com/amrhsyn/Pixabay-Image-Search/blob/develop/app-debug.apk)
 
 #  Stack :
 - Kotlin
