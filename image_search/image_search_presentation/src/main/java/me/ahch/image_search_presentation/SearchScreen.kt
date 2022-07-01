@@ -155,9 +155,22 @@ fun SearchScreen(
                                 }
                             }
                         }
-
-                        loadState.refresh is LoadState.Error || loadState.append is LoadState.Error -> {
+                         loadState.append is LoadState.Error -> {
                             val e = searchedImages.loadState.append as LoadState.Error
+                            item {
+                                e.error.localizedMessage?.let {
+                                    ErrorAndRetry(it) {
+                                        retry()
+                                    }
+                                } ?: run {
+                                    ErrorAndRetry(stringResource(R.string.search_screen_error_message)) {
+                                        retry()
+                                    }
+                                }
+                            }
+                        }
+                        loadState.refresh is LoadState.Error -> {
+                            val e = searchedImages.loadState.refresh as LoadState.Error
                             item {
                                 e.error.localizedMessage?.let {
                                     ErrorAndRetry(it) {
