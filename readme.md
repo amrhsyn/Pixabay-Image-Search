@@ -23,10 +23,12 @@ search screen :
 <img src="https://github.com/amrhsyn/Pixabay-Image-Search/blob/develop/screenshots/55.png" width="25%">
 <br />
 <br />
+<br />
 details screen:
 <br />
 <img src="https://github.com/amrhsyn/Pixabay-Image-Search/blob/develop/screenshots/44.png" width="25%">
 <img src="https://github.com/amrhsyn/Pixabay-Image-Search/blob/develop/screenshots/33.png" width="25%">
+<br />
 <br />
 <br />
 error and loading states:
