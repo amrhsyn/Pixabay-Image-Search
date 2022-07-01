@@ -13,8 +13,10 @@ class SearchRemoteMediator(
     private val searchApi: SearchApi,
     private val pixabayDatabase: PixabayDatabase,
     private val query: String,
-    private val apiKey:String,
+    private val apiKey: String,
 ) : RemoteMediator<Int, HitDto>() {
+
+
 
     private val pixabayImageDao = pixabayDatabase.imagesDao()
     private val pixabayRemoteKeysDao = pixabayDatabase.imagesRemoteKeysDao()

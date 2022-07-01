@@ -12,10 +12,5 @@ import javax.inject.Inject
 class SearchImageUseCase @Inject constructor(
     private val repository: SearchRepository
 ) {
-    suspend operator fun invoke(query: String): Flow<PagingData<Hit>> {
-        if (query.length < 3) {
-            return flowOf()
-        }
-        return repository.searchImage(query)
+    suspend operator fun invoke(query: String): Flow<PagingData<Hit>> = repository.searchImage(query)
     }
-}

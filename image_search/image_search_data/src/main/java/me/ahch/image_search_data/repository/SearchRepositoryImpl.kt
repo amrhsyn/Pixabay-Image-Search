@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import me.ahch.core.model.Hit
 import me.ahch.core.utils.Resource
+import me.ahch.image_search_data.BuildConfig
 import me.ahch.image_search_data.local.PixabayDatabase
 import me.ahch.image_search_data.mapper.toHit
 import me.ahch.image_search_data.paging.SearchRemoteMediator
@@ -29,7 +30,7 @@ class SearchRepositoryImpl(
 
     external fun getPixabayApi(): String
 
-    override suspend fun searchImage(query: String): Flow<Resource<PagingData<Hit>>> {
+    override suspend fun searchImage(query: String): Flow<PagingData<Hit>> {
         val pagingSourceFactory = { pixabayDatabase.imagesDao().getAllImages() }
 
         val searchRemoteMediator = SearchRemoteMediator(
@@ -43,6 +44,6 @@ class SearchRepositoryImpl(
             config = PagingConfig(pageSize = ITEMS_PER_PAGE),
             remoteMediator = searchRemoteMediator,
             pagingSourceFactory = pagingSourceFactory
-        ).flow.map { Resource.Success(it.map { it.toHit() }) }
+         ).flow.map { it.map { it.toHit() } }
     }
 }

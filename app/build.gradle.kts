@@ -81,6 +81,7 @@ dependencies {
     implementation(Coil.skydovesCoil)
 
     implementation(DaggerHilt.hiltAndroid)
+    testImplementation("org.junit.jupiter:junit-jupiter")
     kapt(DaggerHilt.hiltCompiler)
 
     implementation(project(Modules.core))

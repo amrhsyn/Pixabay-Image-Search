@@ -5,7 +5,9 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.launch
 import me.ahch.core.model.Hit
 import me.ahch.image_search_domain.usecase.SearchImageUseCase
@@ -51,15 +53,16 @@ class SearchViewModel @Inject constructor(
                 _state.value = state.value.copy(isDialogOpen = true)
 
             }
-
         }
     }
 
 
     private fun searchImage(query: String = state.value.searchedValue) {
-        viewModelScope.launch {
-            searchImageUseCase.invoke(query = query).cachedIn(viewModelScope).collect {
-                _hitListPagingData.value = it
+        if (query.length >= 3) {
+            viewModelScope.launch {
+                searchImageUseCase.invoke(query = query).cachedIn(viewModelScope).collect {
+                    _hitListPagingData.value = it
+                }
             }
         }
     }

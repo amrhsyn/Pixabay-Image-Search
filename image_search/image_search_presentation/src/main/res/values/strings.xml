@@ -11,4 +11,6 @@
     <string name="search_screen_dialog_message">Do you want to see the details of this image?</string>
     <string name="search_screen_dialog_yes">Yes</string>
     <string name="search_screen_dialog_no">Dismiss</string>
+    <string name="search_screen_error_message">An Error occurred</string>
+    <string name="search_screen_retry">Retry</string>
 </resources>

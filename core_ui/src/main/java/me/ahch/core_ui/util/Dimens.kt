@@ -12,3 +12,4 @@ val SearchListItemImageHeight = 200.dp
 val SearchListItemImageHeightLandscape = 100.dp
 val DefaultTopBarHeight = 56.dp
 val SearchListItemsSpace = 20.dp
+val CircularProgressIndicatorSize = 40.dp

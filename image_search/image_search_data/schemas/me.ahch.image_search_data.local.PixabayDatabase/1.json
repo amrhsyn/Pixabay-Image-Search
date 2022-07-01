@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "ec497a1813b3d39e68864fe15264ba55",
+    "identityHash": "4194d40982e02c106a3bd4174c6f4bcc",
     "entities": [
       {
         "tableName": "pixabay_image_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `collections` INTEGER NOT NULL, `comments` INTEGER NOT NULL, `downloads` INTEGER NOT NULL, `imageSize` INTEGER NOT NULL, `imageWidth` INTEGER NOT NULL, `largeImageURL` TEXT NOT NULL, `likes` INTEGER NOT NULL, `pageURL` TEXT NOT NULL, `previewHeight` INTEGER NOT NULL, `previewURL` TEXT NOT NULL, `previewWidth` INTEGER NOT NULL, `tags` TEXT NOT NULL, `type` TEXT NOT NULL, `user` TEXT NOT NULL, `userId` INTEGER NOT NULL, `userImageURL` TEXT NOT NULL, `views` INTEGER NOT NULL, `webormatHeight` INTEGER NOT NULL, `webFormatURL` TEXT NOT NULL, `webformatWidth` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `collections` INTEGER NOT NULL, `comments` INTEGER NOT NULL, `downloads` INTEGER NOT NULL, `imageHeight` INTEGER NOT NULL, `imageSize` INTEGER NOT NULL, `imageWidth` INTEGER NOT NULL, `largeImageURL` TEXT NOT NULL, `likes` INTEGER NOT NULL, `pageURL` TEXT NOT NULL, `previewHeight` INTEGER NOT NULL, `previewURL` TEXT NOT NULL, `previewWidth` INTEGER NOT NULL, `tags` TEXT NOT NULL, `type` TEXT NOT NULL, `user` TEXT NOT NULL, `userId` INTEGER NOT NULL, `userImageURL` TEXT NOT NULL, `views` INTEGER NOT NULL, `webormatHeight` INTEGER NOT NULL, `webFormatURL` TEXT NOT NULL, `webformatWidth` INTEGER NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -29,6 +29,12 @@
           {
             "fieldPath": "downloads",
             "columnName": "downloads",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imageHeight",
+            "columnName": "imageHeight",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -180,7 +186,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ec497a1813b3d39e68864fe15264ba55')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '4194d40982e02c106a3bd4174c6f4bcc')"
     ]
   }
 }

@@ -56,6 +56,7 @@ fun LandscapeSearchItem(hit: Hit, onItemClick: () -> Unit) {
     Row(
         modifier = Modifier.fillMaxWidth().clickable { onItemClick() },
         verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.Center
 
         ) {
         AsyncImage(

@@ -45,12 +45,20 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    externalNativeBuild {
+        ndkBuild {
+            path = file("src/main/jni/Android.mk")
+        }
+    }
+    ndkVersion = "24.0.8215888"
 }
 
 dependencies {
 
     kapt DaggerHilt.hiltCompiler
     implementation DaggerHilt.hiltAndroid
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.0.9")
 
     implementation AndroidX.annotation
     implementation AndroidX.annotationExperimental
