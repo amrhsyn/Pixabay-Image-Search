@@ -17,9 +17,24 @@ A sample pixabay image search project contains a search screen with result list 
 
 #  Screenshots
 search screen :
-<img src="" width="25%">
+<img src="https://github.com/amrhsyn/Pixabay-Image-Search/blob/develop/screenshots/11.png" width="25%">
+<br />
+<img src="https://github.com/amrhsyn/Pixabay-Image-Search/blob/develop/screenshots/77.png" width="25%">
+<br />
+<img src="https://github.com/amrhsyn/Pixabay-Image-Search/blob/develop/screenshots/55.png" width="25%">
+<br />
+<br />
 details screen:
-<img src="" width="25%">
+<img src="https://github.com/amrhsyn/Pixabay-Image-Search/blob/develop/screenshots/44.png" width="25%">
+<br />
+<img src="https://github.com/amrhsyn/Pixabay-Image-Search/blob/develop/screenshots/33.png" width="25%">
+<br />
+<br />
+error and loading states:
+<img src="https://github.com/amrhsyn/Pixabay-Image-Search/blob/develop/screenshots/11.png" width="25%">
+<br />
+<img src="https://github.com/amrhsyn/Pixabay-Image-Search/blob/develop/screenshots/66.png" width="25%">
+
 
 #  Module Design
 
@@ -43,6 +58,7 @@ details screen:
 
 #  Architecture
 - I used MVVM + Clean Architecture, I have three separated modules named presentation, domain, data for each feature module, with this I have strict separation in my layers and they don't access each other I implemented all clean architecture concepts because the project was an assignment and I think it's over-engineering for this project.
+-
 
 #  And
 - because of time i couldn't write tests but i just developed another assignment project and you can check my tests [here ](/image_search/image_search_data/) and [here](/app/).
