@@ -17,22 +17,21 @@ A sample pixabay image search project contains a search screen with result list 
 
 #  Screenshots
 search screen :
+<br />
 <img src="https://github.com/amrhsyn/Pixabay-Image-Search/blob/develop/screenshots/11.png" width="25%">
-<br />
 <img src="https://github.com/amrhsyn/Pixabay-Image-Search/blob/develop/screenshots/77.png" width="25%">
-<br />
 <img src="https://github.com/amrhsyn/Pixabay-Image-Search/blob/develop/screenshots/55.png" width="25%">
 <br />
 <br />
 details screen:
-<img src="https://github.com/amrhsyn/Pixabay-Image-Search/blob/develop/screenshots/44.png" width="25%">
 <br />
+<img src="https://github.com/amrhsyn/Pixabay-Image-Search/blob/develop/screenshots/44.png" width="25%">
 <img src="https://github.com/amrhsyn/Pixabay-Image-Search/blob/develop/screenshots/33.png" width="25%">
 <br />
 <br />
 error and loading states:
-<img src="https://github.com/amrhsyn/Pixabay-Image-Search/blob/develop/screenshots/11.png" width="25%">
 <br />
+<img src="https://github.com/amrhsyn/Pixabay-Image-Search/blob/develop/screenshots/22.png" width="25%">
 <img src="https://github.com/amrhsyn/Pixabay-Image-Search/blob/develop/screenshots/66.png" width="25%">
 
 
@@ -61,7 +60,7 @@ error and loading states:
 -
 
 #  And
-- because of time i couldn't write tests but i just developed another assignment project and you can check my tests [here ](/image_search/image_search_data/) and [here](/app/).
+- because of time i couldn't write tests but i just developed another assignment project and you can check my tests [here ](https://github.com/amrhsyn/fna/blob/master/fleetlist/fleetlist_data/src/test/java/me/ahch/fleetlist_data/repository/FleetRepositoryImplTest.kt) and [here](https://github.com/amrhsyn/fna/blob/master/app/src/androidTest/java/me/ahch/free_now_assignment/FleeListE2E.kt).
 - I used Hilt as my DI library because I think Hilt has fewer boilerplate codes than dagger2 but I could use dagger2 or even koin too.
 - I used Coroutines and Flows for app threading and observing because it's lighter than Rx, it's native and integrated with other google libraries and it's easier to test because google has some libraries for testing them.
 - For UI/UX, I tried to keep it simple, I used material design and free assets
