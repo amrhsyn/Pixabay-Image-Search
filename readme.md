@@ -16,6 +16,9 @@ you can download a debug version here : [debug version ](https://github.com/amrh
 - Paging3
 - Jdk (for api_key security)
 - kotlin dsl
+- Junit
+- MockWebServer
+- Mockk
 
 #  Screenshots
 search screen :
