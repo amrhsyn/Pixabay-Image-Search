@@ -22,13 +22,15 @@ android {
             useSupportLibrary = true
         }
         signingConfig = signingConfigs.getByName("debug")
+
+
     }
 
 
     buildTypes {
         getByName("release") {
             isDebuggable = false
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -41,6 +43,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -81,7 +84,6 @@ dependencies {
     implementation(Coil.skydovesCoil)
 
     implementation(DaggerHilt.hiltAndroid)
-    testImplementation("org.junit.jupiter:junit-jupiter")
     kapt(DaggerHilt.hiltCompiler)
 
     implementation(project(Modules.core))
@@ -93,6 +95,9 @@ dependencies {
     implementation(AndroidX.coreKtx)
     implementation(AndroidX.appCompat)
     implementation(AndroidX.lifecycle)
+
+    implementation(Coroutines.coroutines)
+    implementation(Coroutines.coroutinesAndroid)
 
     implementation(MaterialDesign.material)
 
@@ -110,23 +115,29 @@ dependencies {
     testImplementation(Testing.junit4)
     testImplementation(Testing.junitAndroidExt)
     testImplementation(Testing.truth)
-    testImplementation(Testing.coroutines)
+    testImplementation(Testing.kotlinxCoroutinesTest)
     testImplementation(Testing.turbine)
     testImplementation(Testing.composeUiTest)
     testImplementation(Testing.mockk)
+    testImplementation(Testing.mockkAgentJvm)
+    testImplementation(Testing.androidxTextCore)
     testImplementation(Testing.mockWebServer)
+    testImplementation(project(Modules.testShared))
 
     androidTestImplementation(Testing.junit4)
     androidTestImplementation(Testing.junitAndroidExt)
     androidTestImplementation(Testing.truth)
-    androidTestImplementation(Testing.coroutines)
+    androidTestImplementation(Testing.kotlinxCoroutinesTest)
     androidTestImplementation(Testing.turbine)
     androidTestImplementation(Testing.composeUiTest)
+    androidTestImplementation(Testing.mockk)
     androidTestImplementation(Testing.mockkAndroid)
     androidTestImplementation(Testing.mockWebServer)
     androidTestImplementation(Testing.hiltTesting)
-    kaptAndroidTest(DaggerHilt.hiltCompiler)
     androidTestImplementation(Testing.testRunner)
+    androidTestImplementation(Testing.composeUiTestManifest)
+    androidTestImplementation(project(Modules.testShared))
 
+    kaptAndroidTest(DaggerHilt.hiltCompiler)
 
 }

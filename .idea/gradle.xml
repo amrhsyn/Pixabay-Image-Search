@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/image_search/image_search_data" />
             <option value="$PROJECT_DIR$/image_search/image_search_domain" />
             <option value="$PROJECT_DIR$/image_search/image_search_presentation" />
+            <option value="$PROJECT_DIR$/test_shared" />
           </set>
         </option>
       </GradleProjectSettings>

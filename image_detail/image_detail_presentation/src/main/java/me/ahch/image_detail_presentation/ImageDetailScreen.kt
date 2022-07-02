@@ -11,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import coil.compose.AsyncImage
 import me.ahch.core.model.Hit
@@ -35,7 +36,8 @@ fun ImageDetailScreen(
             FloatingActionButton(
                 modifier = Modifier.padding(
                     DefaultLargePadding
-                ),
+                )
+                    .testTag(stringResource(R.string.test_tag_back_fab)),
                 onClick = { onBackPress() }, backgroundColor = MaterialTheme.colors.primary
             ) {
                 Icon(

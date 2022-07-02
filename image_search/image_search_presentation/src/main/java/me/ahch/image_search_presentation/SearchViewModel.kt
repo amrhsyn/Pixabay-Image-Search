@@ -18,12 +18,13 @@ class SearchViewModel @Inject constructor(
     private val searchImageUseCase: SearchImageUseCase,
 ) : ViewModel() {
 
+    private val charLimit = 3
+
     private var _hitListPagingData = MutableStateFlow<PagingData<Hit>>(PagingData.empty())
     val hitListPagingData = _hitListPagingData
 
     private var _state = MutableStateFlow(SearchState())
     val state = _state
-
 
     init {
         searchImage("flowers")
@@ -49,16 +50,13 @@ class SearchViewModel @Inject constructor(
                 _state.value = state.value.copy(isDialogOpen = false)
             }
             is SearchEvent.OnSearchItemClick -> {
-                _state.value = state.value.copy(selectedHit = event.hit)
-                _state.value = state.value.copy(isDialogOpen = true)
-
+                _state.value = state.value.copy(selectedHit = event.hit, isDialogOpen = true)
             }
         }
     }
 
-
-    private fun searchImage(query: String = state.value.searchedValue) {
-        if (query.length >= 3) {
+    fun searchImage(query: String = state.value.searchedValue) {
+        if (query.length >= charLimit) {
             viewModelScope.launch {
                 searchImageUseCase.invoke(query = query).cachedIn(viewModelScope).collect {
                     _hitListPagingData.value = it

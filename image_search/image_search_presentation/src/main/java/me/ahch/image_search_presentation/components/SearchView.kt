@@ -23,6 +23,7 @@ import me.ahch.image_search_presentation.R
 
 @Composable
 fun SearchView(
+    modifier: Modifier = Modifier,
     text: String,
     onTextChange: (String) -> Unit,
     onSearchClick: (String) -> Unit,
@@ -35,9 +36,8 @@ fun SearchView(
         elevation = AppBarDefaults.TopAppBarElevation,
     ) {
         TextField(
-            modifier = Modifier
-                .fillMaxWidth()
-                ,
+            modifier = modifier
+                .fillMaxWidth(),
             value = text,
             onValueChange = { onTextChange(it) },
             placeholder = {

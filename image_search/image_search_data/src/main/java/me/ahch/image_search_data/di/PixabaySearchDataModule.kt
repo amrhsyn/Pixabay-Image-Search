@@ -38,7 +38,7 @@ object PixabaySearchDataModule {
 
     @Provides
     @Singleton
-    fun provideFleetApi(client: OkHttpClient): SearchApi {
+    fun provideSearchApi(client: OkHttpClient): SearchApi {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())

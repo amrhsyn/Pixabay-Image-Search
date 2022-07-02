@@ -56,29 +56,41 @@ android {
 
 dependencies {
 
+    coreLibraryDesugaring Core.desugarJdkLibs
+
     kapt DaggerHilt.hiltCompiler
     implementation DaggerHilt.hiltAndroid
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.0.9")
 
     implementation AndroidX.annotation
     implementation AndroidX.annotationExperimental
+    implementation Coroutines.coroutines
+    implementation Coroutines.coroutinesAndroid
+
     testImplementation Testing.junit4
     testImplementation Testing.junitAndroidExt
     testImplementation Testing.truth
-    testImplementation Testing.coroutines
+    testImplementation Testing.kotlinxCoroutinesTest
     testImplementation Testing.turbine
     testImplementation Testing.composeUiTest
     testImplementation Testing.mockk
+    testImplementation Testing.mockkAgentJvm
+    testImplementation Testing.androidxTextCore
     testImplementation Testing.mockWebServer
+    testImplementation project(Modules.testShared)
 
     androidTestImplementation Testing.junit4
     androidTestImplementation Testing.junitAndroidExt
     androidTestImplementation Testing.truth
-    androidTestImplementation Testing.coroutines
+    androidTestImplementation Testing.kotlinxCoroutinesTest
     androidTestImplementation Testing.turbine
     androidTestImplementation Testing.composeUiTest
     androidTestImplementation Testing.mockk
+    androidTestImplementation Testing.mockkAndroid
     androidTestImplementation Testing.mockWebServer
     androidTestImplementation Testing.hiltTesting
+    androidTestImplementation Testing.composeUiTestManifest
+    androidTestImplementation Testing.testRunner
+    androidTestImplementation project(Modules.testShared)
+
 
 }

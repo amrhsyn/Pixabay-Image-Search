@@ -7,7 +7,7 @@ buildscript {
         classpath(Build.androidBuildTools)
         classpath(Build.hiltAndroidGradlePlugin)
         classpath(Kotlin.kotlinGradlePlugin)
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
+        classpath(Testing.kotlinxCoroutinesTest)
     }
 }
 tasks.register("clean", Delete::class) {

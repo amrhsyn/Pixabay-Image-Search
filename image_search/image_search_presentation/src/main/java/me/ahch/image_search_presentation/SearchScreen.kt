@@ -2,12 +2,9 @@ package me.ahch.image_search_presentation
 
 import android.annotation.SuppressLint
 import android.content.res.Configuration
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -16,8 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
@@ -61,7 +56,8 @@ fun SearchScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .weight(1F)
-                            .padding(DefaultStandardPadding),
+                            .padding(DefaultStandardPadding)
+                            .testTag(stringResource(R.string.search_screen_dialog_yes)),
                         onClick = {
                             navigateToDetailsScreen(state.selectedHit)
                             viewModel.onEvent(SearchEvent.OnAlertDialogApply)
@@ -87,7 +83,9 @@ fun SearchScreen(
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = {
-            SearchView(text = state.searchedValue,
+            SearchView(
+                modifier=Modifier.testTag(stringResource(R.string.test_tag_search_screen_search_view)),
+                text = state.searchedValue,
                 onTextChange = {
                     viewModel.onEvent(SearchEvent.OnTextChange(it))
                 }, onSearchClick = {
@@ -97,7 +95,7 @@ fun SearchScreen(
                 })
         }
     ) {
-        Column(modifier=Modifier.fillMaxSize()) {
+        Column(modifier = Modifier.fillMaxSize()) {
             LazyColumn(
                 modifier = Modifier
                     .fillMaxWidth(
@@ -155,7 +153,7 @@ fun SearchScreen(
                                 }
                             }
                         }
-                         loadState.append is LoadState.Error -> {
+                        loadState.append is LoadState.Error -> {
                             val e = searchedImages.loadState.append as LoadState.Error
                             item {
                                 e.error.localizedMessage?.let {

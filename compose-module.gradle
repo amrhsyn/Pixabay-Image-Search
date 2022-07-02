@@ -57,23 +57,33 @@ dependencies {
     implementation Paging.paging
     implementation Coil.coil
     implementation Coil.skydovesCoil
+    implementation Coroutines.coroutines
+    implementation Coroutines.coroutinesAndroid
 
     testImplementation Testing.junit4
     testImplementation Testing.junitAndroidExt 
-    testImplementation Testing.truth 
-    testImplementation Testing.coroutines 
+    testImplementation Testing.truth
+    testImplementation Testing.kotlinxCoroutinesTest
     testImplementation Testing.turbine 
     testImplementation Testing.composeUiTest
     testImplementation Testing.mockk
-    testImplementation Testing.mockWebServer 
+    testImplementation Testing.mockkAgentJvm
+    testImplementation Testing.androidxTextCore
+    testImplementation Testing.mockWebServer
+    testImplementation project(Modules.testShared)
 
-    androidTestImplementation Testing.junit4 
+    androidTestImplementation Testing.junit4
     androidTestImplementation Testing.junitAndroidExt 
-    androidTestImplementation Testing.truth 
-    androidTestImplementation Testing.coroutines 
-    androidTestImplementation Testing.turbine 
+    androidTestImplementation Testing.truth
+    androidTestImplementation Testing.kotlinxCoroutinesTest
+    androidTestImplementation Testing.turbine
     androidTestImplementation Testing.composeUiTest
     androidTestImplementation Testing.mockk
-    androidTestImplementation Testing.mockWebServer 
+    androidTestImplementation Testing.mockkAndroid
+    androidTestImplementation Testing.mockWebServer
     androidTestImplementation Testing.hiltTesting
+    androidTestImplementation Testing.composeUiTestManifest
+    androidTestImplementation Testing.testRunner
+    androidTestImplementation project(Modules.testShared)
+
 }
