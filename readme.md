@@ -47,6 +47,8 @@ error and loading states:
 
 | [app](/app/) | main activity, application class, navigation, and End2End tests |
 
+| [test_shared](/test_shared/) | some resources for testing in other modules |
+
 | [core](/core/)  | core business models and util classes. |
 
 | [core_ui](/core_ui/)  | core ui utils classes. |
@@ -64,7 +66,7 @@ error and loading states:
 -
 
 #  And
-- because of time i couldn't write tests but i just developed another assignment project and you can check my tests [here ](https://github.com/amrhsyn/fna/blob/master/fleetlist/fleetlist_data/src/test/java/me/ahch/fleetlist_data/repository/FleetRepositoryImplTest.kt) and [here](https://github.com/amrhsyn/fna/blob/master/app/src/androidTest/java/me/ahch/free_now_assignment/FleeListE2E.kt).
+- because of time i couldn't write tests for all parts and i just created a test for search view model [here ](https://github.com/amrhsyn/Pixabay-Image-Search/blob/develop/image_search/image_search_presentation/src/test/java/me/ahch/image_search_presentation/SearchViewModelTest.kt) and an End to End test [here](https://github.com/amrhsyn/Pixabay-Image-Search/tree/develop/app/src/androidTest/java/me/ahch/pixabaysearch).
 - I used Hilt as my DI library because I think Hilt has fewer boilerplate codes than dagger2 but I could use dagger2 or even koin too.
 - I used Coroutines and Flows for app threading and observing because it's lighter than Rx, it's native and integrated with other google libraries and it's easier to test because google has some libraries for testing them.
 - For UI/UX, I tried to keep it simple, I used material design and free assets
